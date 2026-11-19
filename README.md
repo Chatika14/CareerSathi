@@ -18,7 +18,51 @@ $$\text{Assess} \longrightarrow \text{Recommend} \longrightarrow \text{Learn} \l
 
 ---
 
-## 2. Tech Stack
+## 2. Application Screenshots & Visual Walkthrough
+
+### 🚀 Landing & Authentication
+| Landing Page | 1-Click Demo Login |
+|:---:|:---:|
+| ![Landing Page](docs/screenshots/01_landing_page.png) | ![Login Page](docs/screenshots/02_login_page.png) |
+
+---
+
+### 📊 Student Placement Workspace & Roadmap
+| Placement Readiness Dashboard | Actionable Learning Roadmap |
+|:---:|:---:|
+| ![Dashboard](docs/screenshots/03_dashboard.png) | ![Roadmap](docs/screenshots/04_roadmap.png) |
+
+---
+
+### 🎯 Diagnostics: Skills & Resume
+| Skills Gap Analysis & Inventory | AI Resume Diagnostic & Rubrics |
+|:---:|:---:|
+| ![Skills Diagnostic](docs/screenshots/05_skills_diagnostic.png) | ![Resume Diagnostic](docs/screenshots/06_resume_diagnostic.png) |
+
+---
+
+### 🎙️ Preparation Drills: Mock Interviews & Practice Bank
+| Rubric-Based Mock Interviews | Curated Coding Bank & Editorials |
+|:---:|:---:|
+| ![Mock Interviews](docs/screenshots/07_mock_interviews.png) | ![Coding Practice](docs/screenshots/10_coding_practice.png) |
+
+---
+
+### 💼 Career Exploration & Opportunities
+| Curated Career Frameworks | Verified Jobs with Alignment Score |
+|:---:|:---:|
+| ![Career Paths](docs/screenshots/08_career_paths.png) | ![Job Tracker](docs/screenshots/09_job_tracker.png) |
+
+---
+
+### 🤖 Guidance & Administration
+| Career Guidance Assessment | AI Placement Mentor | Platform Admin Console |
+|:---:|:---:|:---:|
+| ![Assessment](docs/screenshots/11_guidance_assessment.png) | ![AI Assistant](docs/screenshots/12_ai_assistant.png) | ![Admin Console](docs/screenshots/13_admin_console.png) |
+
+---
+
+## 3. Tech Stack
 
 - **Frontend:** React 19, TypeScript (Strict Mode), Vite, Tailwind CSS, Lucide Icons, TanStack Query, React Router v6.
 - **Backend:** Python 3.13, FastAPI, Pydantic v2, SQLAlchemy 2.0 (Async), Uvicorn ASGI, PyJWT, Bcrypt, PyPDF.
@@ -27,7 +71,7 @@ $$\text{Assess} \longrightarrow \text{Recommend} \longrightarrow \text{Learn} \l
 
 ---
 
-## 3. Quick Start & Local Setup
+## 4. Quick Start & Local Setup
 
 ### Prerequisites
 - Node.js (v18+) & npm
@@ -77,7 +121,7 @@ Frontend application will be running at: `http://localhost:5173`
 
 ---
 
-## 4. Pre-Seeded Evaluation Accounts
+## 5. Pre-Seeded Evaluation Accounts
 
 The database seed automatically creates two accounts for instant testing:
 
@@ -90,7 +134,7 @@ The database seed automatically creates two accounts for instant testing:
 
 ---
 
-## 5. Running Automated Tests & Production Builds
+## 6. Running Automated Tests & Production Builds
 
 ### Run Backend Tests (Unit + End-to-End Journey)
 ```bash
@@ -107,7 +151,7 @@ npm run build
 
 ---
 
-## 6. Environment Variables (`.env.example`)
+## 7. Environment Variables (`.env.example`)
 
 ```dotenv
 # Frontend
@@ -136,7 +180,7 @@ AI_REQUESTS_PER_MINUTE=15
 
 ---
 
-## 7. Documentation Index
+## 8. Documentation Index
 - [Product Specification](docs/PRODUCT_SPEC.md)
 - [Technical Architecture](docs/ARCHITECTURE.md)
 - [Database Schema & Dictionary](docs/DATABASE.md)
