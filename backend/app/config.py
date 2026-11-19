@@ -18,8 +18,8 @@ class Settings(BaseSettings):
         "http://127.0.0.1:3000"
     ]
     
-    # Database
-    DATABASE_URL: str = "sqlite+aiosqlite:///./careersaathi.db"
+    # Database (Default uses /tmp if running in Vercel serverless environment)
+    DATABASE_URL: str = "sqlite+aiosqlite:////tmp/careersaathi.db" if os.getenv("VERCEL") else "sqlite+aiosqlite:///./careersaathi.db"
     
     # AI Providers
     AI_PROVIDER: str = "auto"  # 'gemini', 'openai', 'auto', or 'mock'
@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     
     # File limits
     MAX_RESUME_SIZE_MB: int = 5
-    RESUME_STORAGE_DIR: str = "./storage/resumes"
+    RESUME_STORAGE_DIR: str = "/tmp/storage/resumes" if os.getenv("VERCEL") else "./storage/resumes"
     
     # Rate limits
     AI_REQUESTS_PER_MINUTE: int = 15

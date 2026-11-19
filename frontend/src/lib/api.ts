@@ -33,18 +33,36 @@ class ApiClient {
       headers,
     });
 
+    let rawText = '';
+    try {
+      rawText = await res.text();
+    } catch {
+      rawText = '';
+    }
+
     if (!res.ok) {
       let errorDetail = 'An unexpected error occurred.';
       try {
-        const errJson = await res.json();
+        const errJson = JSON.parse(rawText);
         errorDetail = errJson.detail || errJson.message || errorDetail;
       } catch {
-        errorDetail = await res.text() || res.statusText;
+        if (rawText.includes('<!DOCTYPE html>') || rawText.includes('<html') || rawText.includes('<!doctype html>')) {
+          errorDetail = `Backend API unavailable at '${API_BASE}'. Please ensure the backend server is running and VITE_API_BASE_URL is configured.`;
+        } else {
+          errorDetail = rawText || res.statusText || `Request failed with status ${res.status}`;
+        }
       }
       throw new Error(errorDetail);
     }
 
-    return res.json();
+    try {
+      return JSON.parse(rawText);
+    } catch {
+      if (rawText.includes('<!DOCTYPE html>') || rawText.includes('<html') || rawText.includes('<!doctype html>')) {
+        throw new Error(`Backend API returned HTML instead of JSON from '${API_BASE}'. Please set VITE_API_BASE_URL in your deployment environment variables.`);
+      }
+      throw new Error('Server returned an invalid non-JSON response.');
+    }
   }
 
   // Auth & Profile
