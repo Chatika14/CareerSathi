@@ -53,3 +53,5 @@ Thumbs.db
 .idea/
 .vercel/
 frontend/.vercel/
+
+.vercel
