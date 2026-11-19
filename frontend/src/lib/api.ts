@@ -1,4 +1,20 @@
-const API_BASE = (import.meta.env.VITE_API_BASE_URL ? import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '') : '') + '/api/v1';
+const getApiBase = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl) {
+    const trimmed = envUrl.replace(/\/$/, '');
+    // If the browser is on a public remote host (e.g. Vercel) and the env was set to localhost,
+    // do not attempt to call loopback which is blocked by browser Private Network Access.
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      if (trimmed.includes('localhost') || trimmed.includes('127.0.0.1')) {
+        return '/api/v1';
+      }
+    }
+    return `${trimmed}/api/v1`;
+  }
+  return '/api/v1';
+};
+
+const API_BASE = getApiBase();
 
 class ApiClient {
   private getToken(): string | null {
